@@ -221,6 +221,17 @@ computer_turn <- function(state, play_order){  #need further tuning to make it o
   #play_order = 1 computer play first 
   #play_order = 2 computer play second
   #use p2 on inside computer part 
+  triples <- list(  #I added this part!!!
+    c(1,2,3),
+    c(4,5,6),
+    c(7,8,9),
+    c(1,4,7),
+    c(2,5,8),
+    c(3,6,9),
+    c(1,5,9),
+    c(3,5,7)
+  )
+  
   na_cell_index <- which(is.na(state)) #get the index of NAs on vector "state"
   
   if(length(which(is.na(state))) == 1){
@@ -260,7 +271,7 @@ computer_turn <- function(state, play_order){  #need further tuning to make it o
 }
 
 
-
+state <- rep(NA,9)
 play <- function(){
   #prompt user 
   p1 <- readline("how many human player? 1 or 2:")
